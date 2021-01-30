@@ -6,16 +6,23 @@ s = Screen()
 s.bgcolor("gray")
 s.title('hello')
 
+
 t.shape("turtle")
 t.color("black")
-t.pensize(1)
+t.pensize(10)
 t.speed(3500)
+s.colormode(255)
 
-#s.textinput("NIM", "Name of first player:")
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    
+    colors = (r, g, b)
+    return colors
 
-# change and draw a random color
-clrs = ["yellow", "red", "purple", "blue"]
-
+print(random_color())
+# draw pentagon, hexagon, heptgon, octagon, nonagon, decagon
 def draw_shape(num_sides):
     angle = 360 / num_sides
     for j in range(num_sides):
@@ -24,23 +31,8 @@ def draw_shape(num_sides):
         t.left(angle)
 
 for shape_in_side in range(3, 11):
-    for c in clrs: 
-        t.color(c) 
-        draw_shape(shape_in_side)
-        
-        
-           
-
-
-# draw pentagon, hexagon, heptgon, octagon, nonagon, decagon
-
-    
-
-
-#timmy_the_turtle = Turtle()
-#timmy_the_turtle.shape("turtle")
-#timmy_the_turtle.color("green")
-
+    t.pencolor(random_color())
+    draw_shape(shape_in_side)
 
 screen = Screen()
 screen.exitonclick()
